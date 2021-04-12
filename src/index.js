@@ -7,16 +7,18 @@ import "./index.css";
 import App from "./App";
 import store from "./store";
 
-const REACT_APP_CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-const REACT_APP_AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN;
+const AUTH0_CLIENT_ID = process.env.REACT_APP_AUTH0_CLIENT_ID;
+const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN;
+const AUTH0_AUDIENCE = process.env.REACT_APP_AUTH0_AUDIENCE;
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Auth0Provider
-        domain={REACT_APP_AUTH0_DOMAIN}
-        clientId={REACT_APP_CLIENT_ID}
+        domain={AUTH0_DOMAIN}
+        clientId={AUTH0_CLIENT_ID}
         redirectUri={window.location.origin}
+        audience={AUTH0_AUDIENCE}
       >
         <App />
       </Auth0Provider>
